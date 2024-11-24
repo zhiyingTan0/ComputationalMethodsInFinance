@@ -1,2 +1,4 @@
-# ComputationalMethodsInFinance
- Qunat methods
+# Computational Methods In Finance
+Following assignments in here: https://math.nyu.edu/~goodman/teaching/Comp_Fin_97/comp_fin_97.html
+
+Computational techniques for solving mathematical problems arising in finance. Numerical solution of parabolic partial differential equations, basic schemes, general theory, relation to binomial and trinomial trees, boundary conditions for American options, computation of sensitivities, application to one factor and multi factor models. Stochastic simulation and Monte Carlo. Pseudo random number generators, generating random variables with specified distributions, statistical analysis of simulation data and error bars. Numerical solution of stochastic differential equations. Application to pricing, hedging, and portfolio management. Path dependent options. Model calibration and hypothesis testing. Value at risk.
