@@ -34,7 +34,8 @@ def calculate_probability(N, p, num_trials):
 """Method 2: Numpy"""
 def simulate_random_walk_numpy(N, p, num_trials):
     pos=5
-    samples = np.random.binomial(n=1, p=p, size=num_trials*N).reshape(num_trials,N)*2-1
+    #samples = np.random.binomial(n=1, p=p, size=num_trials*N).reshape(num_trials,N)*2-1
+    samples = np.random.binomial(n=1, p=p, size=(num_trials,N))*2-1
     estimate_prob = np.sum((np.cumsum(samples, axis=1)+pos <= 0).any(axis=0) ) / num_trials
     return estimate_prob
 

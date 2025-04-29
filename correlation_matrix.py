@@ -11,14 +11,13 @@ def generate_random_correlation_matrix(dim):
     # a lower triangular matrix
     L = np.tril(np.random.rand(dim, dim))
     # Cholesky decomposition to form covariance matrix
+    # positive_definite_matrix: covariance
     positive_definite_matrix = np.dot(L,L.T)
 
     # Step 2: Normalize to create a correlation matrix
-    # d is covariance matrix
+    # covariance matrix: 1*n
     d = np.sqrt(np.diag(positive_definite_matrix))  # cov(xi, xi) (sqrt of variances)
-    variance_matrix = np.array([[var] for var in d]) # form n by 1 matrix
-    # sqrt(Var_xi) * sqrt(Var_xj)
-    correlation_matrix = positive_definite_matrix / np.dot(variance_matrix, variance_matrix.T)  # Normalize to get correlations
+    correlation_matrix = positive_definite_matrix / np.dot(d.T, d)  # Normalize to get correlations
     np.fill_diagonal(correlation_matrix, 1)  # correlation of same variable should be 1
 
     return correlation_matrix
@@ -52,4 +51,5 @@ def is_valid_correlation_matrix(matrix):
 
 dim = 6
 random_corr_matrix = generate_random_correlation_matrix(dim)
+print('correlation matrix:\n', random_corr_matrix)
 is_valid = is_valid_correlation_matrix(random_corr_matrix)
